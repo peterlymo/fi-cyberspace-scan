@@ -67,17 +67,17 @@ header1 = \
 
 def confirm():
     prompt = "Execute Cyberspace Run? [Y/n]: "
-    val = raw_input(prompt)
+    val = input(prompt)
     val = val.lower()
     
     if val in ['n','no']:
-        print bco.BLU+brk
-        print bco.RED+"ENDING APPLICATION"+bco.ENC
-        print bco.ITA+"Sponsored by: "+bco.BEG+" Hosaka Ono Sendai CYBERSPACE 7 - \"Break the ICE\""
-        print bco.BLU+brk+bco.ENC
+        print(bco.BLU+brk)
+        print(bco.RED+"ENDING APPLICATION"+bco.ENC)
+        print(bco.ITA+"Sponsored by: "+bco.BEG+" Hosaka Ono Sendai CYBERSPACE 7 - \"Break the ICE\"")
+        print(bco.BLU+brk+bco.ENC)
         exit(1)
     else:
-        print ""
+        print("")
 
 
 def settings():
@@ -106,9 +106,9 @@ def settings():
             imode = arg
             tmode = imode.lower()
             if tmode not in ['1','2','3','4','kuang-grade-mark-11','ice-breaker','mole-ix','win-construct']:
-                print bco.BLU+brk
-                print "Invalid Cyber-Attack Mode. Set as Number (1-4) or Mode Name. Exiting..."
-                print bco.BLU+brk
+                print(bco.BLU+brk)
+                print("Invalid Cyber-Attack Mode. Set as Number (1-4) or Mode Name. Exiting...")
+                print(bco.BLU+brk)
                 exit(1)
             elif tmode in ("1", "ice-breaker"):
                 mode = "ICE-Breaker"
@@ -135,18 +135,18 @@ def settings():
             if mode in 'ICE-Breaker':
                 nullbyte = False
         elif opt in ('-h', '--help'):
-            print hep
+            print(hep)
             exit(1)
-    print bco.BLU+brk+bco.ENC
-    print header1 
-    print bco.BLU+"-----------------------Hardwired Options-------------------------"
-    print bco.BEG+'TARGET URL                   '+bco.ENC+':', target
-    print bco.BEG+'CYBER ATTACK MODE            '+bco.ENC+':', mode
-    print bco.BEG+'PATH TYPE                    '+bco.ENC+':', path
-    print bco.BEG+'DEEP SPACE TRAVERSAL         '+bco.ENC+':', deepspace
-    print bco.BEG+'NULL-BYTE %00                '+bco.ENC+':', nullbyte
-    print bco.BLU+brk
-    print bco.RED+"DO NOT USE AGAINST UNAUTHORIZED INTRUSION COUNTERMEASURE ELECTRONICS"+bco.ENC
+    print(bco.BLU+brk+bco.ENC)
+    print(header1) 
+    print(bco.BLU+"-----------------------Hardwired Options-------------------------")
+    print(bco.BEG+'TARGET URL                   '+bco.ENC+':', target)
+    print(bco.BEG+'CYBER ATTACK MODE            '+bco.ENC+':', mode)
+    print(bco.BEG+'PATH TYPE                    '+bco.ENC+':', path)
+    print(bco.BEG+'DEEP SPACE TRAVERSAL         '+bco.ENC+':', deepspace)
+    print(bco.BEG+'NULL-BYTE %00                '+bco.ENC+':', nullbyte)
+    print(bco.BLU+brk)
+    print(bco.RED+"DO NOT USE AGAINST UNAUTHORIZED INTRUSION COUNTERMEASURE ELECTRONICS"+bco.ENC)
 
 
 def executioner():
@@ -160,15 +160,15 @@ def executioner():
   tmp_code = tmp_beval.status_code
   if str(tmp_code).startswith('2'):
     beval = len(tmp_beval.content)
-    print bco.BLU+brk
-    print bco.BLU + "It seems "+bco.BEG,beval,bco.BLU+" is the common reflected byte size."
-    print bco.BLU + "Digging into unique reflection sizes."
-    print bco.BLU+brk
+    print(bco.BLU+brk)
+    print(bco.BLU + "It seems "+bco.BEG,beval,bco.BLU+" is the common reflected byte size.")
+    print(bco.BLU + "Digging into unique reflection sizes.")
+    print(bco.BLU+brk)
   else:
-    print bco.BLU+brk
-    print bco.BLU + "It seems the URL is responding with a "+bco.BEG+"Non-HTTP 200"+bco.BLU+" status when fuzzed."
-    print "Any reflection should be documented as a finding."
-    print bco.BLU+brk
+    print(bco.BLU+brk)
+    print(bco.BLU + "It seems the URL is responding with a "+bco.BEG+"Non-HTTP 200"+bco.BLU+" status when fuzzed.")
+    print("Any reflection should be documented as a finding.")
+    print(bco.BLU+brk)
    
 
   for i in modelist:
@@ -191,34 +191,34 @@ def executioner():
          m = k + m
       
       if tmode < 1:
-        print bco.RED + "[-] - Nothing found in " + i + bco.ENC
+        print(bco.RED + "[-] - Nothing found in " + i + bco.ENC)
       elif (mode in 'ICE-Breaker'):
         # This number has to equal number of records in ICE list.
         if m / 121 == k:
-            print bco.RED + "[-] - Nothing found in " + i + bco.ENC
+            print(bco.RED + "[-] - Nothing found in " + i + bco.ENC)
         else:
-            print bco.BEG + "[+] - Something interesting found with "+ i +bco.BEG+" in "+bco.ENC
+            print(bco.BEG + "[+] - Something interesting found with "+ i +bco.BEG+" in "+bco.ENC)
             for j in ko:
               jas = target + j + i
               xeq = requests.get(jas)
               x = len(xeq.content)
               if x != k:
-                print bco.BEG + "     --Path: "+bco.ENC ,j,bco.GRN + "bytes:"+bco.ENC,x
+                print(bco.BEG + "     --Path: "+bco.ENC ,j,bco.GRN + "bytes:"+bco.ENC,x)
 
       elif (m / 5 == k and deepspace != True):
-        print bco.RED + "[-] - Nothing found in " + i + bco.ENC
+        print(bco.RED + "[-] - Nothing found in " + i + bco.ENC)
       elif (m / 9 == k and deepspace == True):
-        print bco.RED + "[-] - Nothing found in " + i + bco.ENC
+        print(bco.RED + "[-] - Nothing found in " + i + bco.ENC)
       else:
-        print bco.BEG + "[+]"+bco.BEG+" - Something interesting found with "+bco.ENC+ i +bco.BEG+" in "+bco.ENC
+        print(bco.BEG + "[+]"+bco.BEG+" - Something interesting found with "+bco.ENC+ i +bco.BEG+" in "+bco.ENC)
         for j in ko:
             jas = target + j + i
             xeq = requests.get(jas)
             x = len(xeq.content)
             if deepspace is True and x != beval:
-                 print bco.BEG + "     --Path: "+bco.ENC ,j
+                 print(bco.BEG + "     --Path: "+bco.ENC ,j)
             if deepspace is False and x != beval:
-                 print bco.BEG + "     --Path: "+bco.ENC ,j
+                 print(bco.BEG + "     --Path: "+bco.ENC ,j)
    
 
 def main():
@@ -228,8 +228,8 @@ def main():
 
   tars = len(sys.argv)  
   if tars == 1:
-    print "-----------------------"+bco.BLU+"FI Cyberspace-Scan"+bco.ENC+"------------------------"
-    print hep
+    print("-----------------------"+bco.BLU+"FI Cyberspace-Scan"+bco.ENC+"------------------------")
+    print(hep)
     exit(1)
 
   settings()
@@ -381,9 +381,9 @@ def main():
   
   executioner()
 
-  print bco.BLU+brk
-  print bco.ENC+"Cyber Run Status:     "+bco.GRN+" COMPLETE"+bco.ENC
-  print bco.BLU+brk+bco.ENC
+  print(bco.BLU+brk)
+  print(bco.ENC+"Cyber Run Status:     "+bco.GRN+" COMPLETE"+bco.ENC)
+  print(bco.BLU+brk+bco.ENC)
 
 
 if __name__ == '__main__':
